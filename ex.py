@@ -28,9 +28,10 @@ for sent in sents:
         sentens.append(temple_str)
         temple_str = ''
 a = 0
-f = open(path_write, 'w')
-for sent in sentens:# write to the file
-    if len(sent) <= 200:
+for sent in sentens:  # write to the file
+    temp = sent.split(" ")
+    temp = list(filter(None, temp))
+    if len(sent) <= 200 and len(temp) >= 3:
         f.write(sent + '\n')
         a += 1
 print(a)
